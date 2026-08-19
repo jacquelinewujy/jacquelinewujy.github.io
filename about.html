@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me | Jacqueline</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="about.html" aria-current="page">About Me</a>
+        <a href="projects.html">Projects</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu"><a href="marketing-media.html">Marketing &amp; Media</a><a href="architecture.html">Architecture</a></div>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" class="page-width content-page about-page">
+      <header class="page-intro about-page-intro">
+        <h1>Jacqueline Wu</h1>
+        <div class="about-intro-layout">
+          <div class="about-portrait-frame">
+            <img class="about-portrait" src="assets/images/about-me/profile2.JPG" alt="Jacqueline Wu">
+          </div>
+          <div class="about-intro-content">
+            <h2 class="about-intro-title">About Me</h2>
+            <div class="intro-copy">
+              <p>I’ve always been curious about why people behave the way they do—and why everyday products sometimes make simple things harder than they need to be. Even something as small as struggling to get the last bit of lotion out of a bottle makes me wonder how it could work better.</p>
+              <p>At Tufts, I combine psychology and engineering to understand people and improve the products and systems around them. I enjoy turning messy problems into clearer ones: asking questions, finding patterns, and figuring out what actually matters to the people using something.</p>
+              <p>My background in architecture, marketing, and media also shapes how I approach problems. It has taught me to think about form, function, constraints, visual communication, audience behavior, and storytelling—giving me multiple ways to understand both a problem and the people experiencing it.</p>
+            </div>
+            <a class="button" href="assets/pdfs/jacqueline-wu.pdf" target="_blank" rel="noopener noreferrer">Resume ↓</a>
+          </div>
+        </div>
+      </header>
+      <section class="content-section" aria-labelledby="more-about-title">
+        <h2 id="more-about-title">A little more about me…</h2>
+        <div class="interests-grid">
+          <button class="interest-circle" type="button" data-interest-toggle aria-expanded="false" aria-controls="nail-art-overlay">
+            <img src="assets/images/about-me/nail-art.JPG" alt="">
+            <span id="nail-art-overlay" class="interest-overlay">
+              <strong class="interest-title">Nail Art:</strong>
+              <span class="interest-description">I enjoy doing nails for myself and friends and experimenting with colors, textures, and styles.</span>
+            </span>
+          </button>
+          <button class="interest-circle" type="button" data-interest-toggle aria-expanded="false" aria-controls="traveling-overlay">
+            <img src="assets/images/about-me/traveling.jpg" alt="">
+            <span id="traveling-overlay" class="interest-overlay">
+              <strong class="interest-title">Traveling:</strong>
+              <span class="interest-description">I love exploring new places, trying local food, and experiencing different cultures!</span>
+            </span>
+          </button>
+          <button class="interest-circle" type="button" data-interest-toggle aria-expanded="false" aria-controls="hello-kitty-overlay">
+            <img src="assets/images/about-me/hellokitty.png" alt="">
+            <span id="hello-kitty-overlay" class="interest-overlay">
+              <strong class="interest-title">Building on my Hello Kitty Collection</strong>
+            </span>
+          </button>
+        </div>
+      </section>
+      <section class="content-section" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <div class="skills-keyboard" data-skills-keyboard>
+          <div class="skills-display" aria-live="polite" aria-atomic="true">
+            <span data-skill-output>Select...</span><span class="skills-caret" data-skill-caret hidden aria-hidden="true">|</span>
+          </div>
+          <div class="skill-key-groups" aria-label="Software skills keyboard">
+            <div class="skill-key-row skill-key-row-design" role="group" aria-label="Design and Prototyping">
+              <button class="skill-key" type="button" data-skill-name="Figma" aria-label="Figma"><img src="assets/images/about-me/figma.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Adobe Photoshop" aria-label="Adobe Photoshop"><img src="assets/images/about-me/photoshop.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Canva" aria-label="Canva"><img src="assets/images/about-me/canva.svg" alt=""></button>
+            </div>
+            <div class="skill-key-row skill-key-row-spatial" role="group" aria-label="3D and Spatial Design">
+              <button class="skill-key" type="button" data-skill-name="AutoCAD" aria-label="AutoCAD"><img src="assets/images/about-me/autocad.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="3ds Max" aria-label="3ds Max"><img src="assets/images/about-me/3dsmax.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Rhino 3D" aria-label="Rhino 3D"><img src="assets/images/about-me/rhinoceros.svg" alt=""></button>
+            </div>
+            <div class="skill-key-row skill-key-row-data" role="group" aria-label="Data and Programming">
+              <button class="skill-key" type="button" data-skill-name="Python" aria-label="Python"><img src="assets/images/about-me/python.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Excel" aria-label="Excel"><img src="assets/images/about-me/excel.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Stata" aria-label="Stata"><img src="assets/images/about-me/stata.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Google Analytics" aria-label="Google Analytics"><img src="assets/images/about-me/google-analytics.svg" alt=""></button>
+            </div>
+            <div class="skill-key-row skill-key-row-collaboration" role="group" aria-label="Collaboration and Productivity">
+              <button class="skill-key" type="button" data-skill-name="Notion" aria-label="Notion"><img src="assets/images/about-me/notion.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Slack" aria-label="Slack"><img src="assets/images/about-me/slack.svg" alt=""></button>
+              <button class="skill-key" type="button" data-skill-name="Asana" aria-label="Asana"><img src="assets/images/about-me/asana.svg" alt=""></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="page-width footer-content"><section><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Me</a></li><li><a href="projects.html">Projects</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="marketing-media.html">Marketing &amp; Media</a></li><li><a href="architecture.html">Architecture</a></li></ul></li></ul></nav></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

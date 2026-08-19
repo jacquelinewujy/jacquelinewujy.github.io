@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wayable accessibility-focused navigation concept case study.">
+    <title>Wayable | Jacqueline</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="../about.html">About Me</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu"><a href="../marketing-media.html">Marketing &amp; Media</a><a href="../architecture.html">Architecture</a></div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="page-width case-study">
+      <header class="detail-hero">
+        <h1>Wayable</h1>
+        <p class="detail-tags">Product Strategy · UX Research · Accessibility · Figma</p>
+      </header>
+
+      <div class="case-study-layout">
+        <div class="case-study-content">
+      <section class="case-study-section" aria-labelledby="overview-title">
+        <div class="wayable-overview-layout">
+          <div class="wayable-overview-copy">
+            <h2 id="overview-title">Overview</h2>
+            <p>Wayable is an accessibility-focused navigation concept created for the <strong>Tufts Derby Entrepreneurship Center 36-Hour Producthon</strong> under the Civic Transparency track.</p>
+            <p>Through interviews with people with mobility disabilities, we discovered that accessibility information often already exists—but is fragmented across government notices, maps, social media, and word of mouth, making it difficult to find when it is actually needed.</p>
+            <p>We translated that insight into a mid-fidelity concept centered on <strong>accessible route planning and real-time issue reporting</strong>.</p>
+            <dl class="case-study-meta wayable-meta">
+              <div><dt>Role</dt><dd>Product Manager / UX Researcher</dd></div>
+              <div><dt>Timeline</dt><dd>February 2026 (36 hours)</dd></div>
+              <div><dt>Team</dt><dd>4-person cross-functional team</dd></div>
+            </dl>
+          </div>
+          <div class="wayable-figma-frame">
+            <iframe
+              src="https://embed.figma.com/proto/TBHHhR0F6687q6bG904JFP/Disability-Map?node-id=68-396&amp;starting-point-node-id=68%3A396&amp;embed-host=share"
+              title="Interactive Wayable Figma prototype"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="problem-title">
+        <h2 id="problem-title">The Problem</h2>
+        <p>People with mobility disabilities cannot always tell whether a route is accessible at the moment they need to travel.</p>
+        <p>Government notices, maps, transportation websites, social media, and word of mouth may all contain useful information, but users often have to piece it together themselves. Missing an update—such as unexpected roadwork—can mean rerouting, additional time and effort, and greater difficulty traveling independently.</p>
+      </section>
+
+      <section class="case-study-section research-direction" aria-labelledby="direction-title">
+        <h2 id="direction-title">Research → Product Direction</h2>
+        <p>I interviewed people with mobility disabilities to understand how they currently plan trips and find accessibility information.</p>
+        <p class="key-statement"><strong>The information often exists. The problem is finding it, consolidating it, and receiving it at the right time.</strong></p>
+        <div class="direction-list">
+          <p><strong>Fragmented information</strong><br><span aria-hidden="true">→</span> Bring accessibility information into the route-planning experience.</p>
+          <p><strong>Lack of timely updates</strong><br><span aria-hidden="true">→</span> Allow users to see and contribute current accessibility conditions.</p>
+        </div>
+        <p>As Product Manager / UX Researcher, I translated these findings into the key product priorities and information the UI/UX designers focused on during prototyping.</p>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="solution-title">
+        <h2 id="solution-title">The Solution</h2>
+        <h3>Accessible Route Planning</h3>
+        <p>Help users identify accessible vs. inaccessible routes using current accessibility information.</p>
+        <h3>Real-Time Issue Reporting</h3>
+        <p>Allow users to submit accessibility issues so other travelers can see changing conditions more quickly.</p>
+        <h3>Announcements &amp; Repair Notices</h3>
+        <p>Surface updated accessibility alerts, construction information, and repair notices in one place.</p>
+        <h3>Volunteer Assistance</h3>
+        <p>Allow users to request help when an inaccessible route or barrier makes independent travel difficult.</p>
+        <h3>Status Tracking</h3>
+        <p>Let users track submitted reports and volunteer assistance requests so they can see their current status.</p>
+        <p>The team translated this direction into a <strong>mid-fidelity Figma prototype</strong>.</p>
+        <div class="wayable-carousel" data-wayable-carousel role="region" aria-roledescription="carousel" aria-label="Wayable interface screens">
+          <div id="wayable-carousel-track" class="wayable-carousel-track" data-wayable-track tabindex="0">
+            <figure class="wayable-carousel-card" data-wayable-slide role="group" aria-roledescription="slide" aria-label="1 of 6">
+              <img src="../assets/images/projects/wayable/trip1.png" alt="Wayable accessible trip-planning screen">
+            </figure>
+            <figure class="wayable-carousel-card is-active" data-wayable-slide role="group" aria-roledescription="slide" aria-label="2 of 6" aria-current="true">
+              <img src="../assets/images/projects/wayable/trip2.png" alt="Wayable route accessibility details screen">
+            </figure>
+            <figure class="wayable-carousel-card" data-wayable-slide role="group" aria-roledescription="slide" aria-label="3 of 6">
+              <img src="../assets/images/projects/wayable/report.png" alt="Wayable accessibility issue-reporting screen">
+            </figure>
+            <figure class="wayable-carousel-card" data-wayable-slide role="group" aria-roledescription="slide" aria-label="4 of 6">
+              <img src="../assets/images/projects/wayable/announcement.png" alt="Wayable accessibility announcements and repair notices screen">
+            </figure>
+            <figure class="wayable-carousel-card" data-wayable-slide role="group" aria-roledescription="slide" aria-label="5 of 6">
+              <img src="../assets/images/projects/wayable/volunteer.png" alt="Wayable volunteer assistance screen">
+            </figure>
+            <figure class="wayable-carousel-card" data-wayable-slide role="group" aria-roledescription="slide" aria-label="6 of 6">
+              <img src="../assets/images/projects/wayable/status.png" alt="Wayable report and assistance status-tracking screen">
+            </figure>
+          </div>
+          <div
+            class="wayable-carousel-scrollbar"
+            data-wayable-scrollbar
+            role="scrollbar"
+            aria-label="Scroll through Wayable interface screens"
+            aria-controls="wayable-carousel-track"
+            aria-orientation="horizontal"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            tabindex="0"
+          >
+            <span class="wayable-carousel-thumb" data-wayable-thumb aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="contribution-title">
+        <h2 id="contribution-title">My Contribution</h2>
+        <ul>
+          <li>Conducted interviews with people with mobility disabilities.</li>
+          <li>Synthesized research into the core problems of fragmented information and delayed updates.</li>
+          <li>Helped define the product direction with the team.</li>
+          <li>Prioritized the features and information the UI/UX designers should focus on within the 36-hour timeline.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="outcome-title">
+        <h2 id="outcome-title">Outcome</h2>
+        <p>Within 36 hours, our team produced:</p>
+        <ul>
+          <li>A research-backed product concept</li>
+          <li>A mid-fidelity Figma prototype</li>
+          <li>An 8-minute pitch presentation</li>
+        </ul>
+        <p class="key-statement"><strong>Wayable was selected as a Top 3 Finalist in the Producthon.</strong></p>
+        <a class="button" href="../assets/pdfs/wayable.pdf" target="_blank" rel="noopener noreferrer">View Pitch Presentation →</a>
+      </section>
+        </div>
+        <nav class="case-study-directory" aria-label="Wayable section directory">
+          <p class="case-study-directory-title">On this page</p>
+          <ul>
+            <li><a href="#overview-title">Overview</a></li>
+            <li><a href="#problem-title">The Problem</a></li>
+            <li><a href="#direction-title">Research → Product Direction</a></li>
+            <li><a href="#solution-title">The Solution</a></li>
+            <li><a href="#contribution-title">My Contribution</a></li>
+            <li><a href="#outcome-title">Outcome</a></li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="page-width footer-content"><section><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About Me</a></li><li><a href="../projects.html">Projects</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="../marketing-media.html">Marketing &amp; Media</a></li><li><a href="../architecture.html">Architecture</a></li></ul></li></ul></nav></div></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

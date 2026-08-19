@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jacqueline's portfolio. Content is being updated.">
+    <title>Jacqueline | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="about.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu">
+            <a href="marketing-media.html">Marketing &amp; Media</a>
+            <a href="architecture.html">Architecture</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="hero home-hero page-width">
+        <div class="home-hero-copy">
+          <h1>Hi, I’m Jacqueline</h1>
+          <p class="hero-statement">I turn human behavior into clearer product decisions and more intuitive experiences.</p>
+          <p class="lede">I’m interested in the intersection of psychology, engineering, and design—understanding how people think and using those insights to make products and experiences work better.</p>
+          <a class="button hero-cta" href="#home-contact">Contact Me</a>
+        </div>
+        <div class="home-hero-image-frame">
+          <img class="home-hero-image" src="assets/images/home/profile.png" alt="Jacqueline Wu">
+        </div>
+      </section>
+      <section class="page-width section" aria-labelledby="featured-title">
+        <div class="section-heading"><p class="kicker">Selected work</p><h2 id="featured-title">Featured Projects</h2></div>
+        <div class="featured-carousel" role="region" aria-label="Featured projects carousel">
+          <div class="project-grid">
+            <article class="featured-card">
+              <a href="projects/pulse.html" aria-label="View Pulse project">
+                <div class="featured-card-media"><img src="assets/images/projects/pulse/hero.png" alt="Pulse financial coaching app home screen"></div>
+                <h3>Pulse</h3>
+                <div class="featured-card-overlay">
+                  <p class="project-tags">Product Strategy · UX · Behavioral Design · FinTech</p>
+                  <p>Pulse is a student-focused financial coaching concept that provides real-time spending guidance, meaningful spending translations, and behavior-based financial recommendations.</p>
+                  <span class="card-link">View project <span aria-hidden="true">→</span></span>
+                </div>
+              </a>
+            </article>
+            <article class="featured-card">
+              <a href="projects/wayable.html" aria-label="View Wayable project">
+                <div class="featured-card-media"><img src="assets/images/projects/wayable/hero.png" alt="Wayable accessibility-focused navigation app"></div>
+                <h3>Wayable</h3>
+                <div class="featured-card-overlay">
+                  <p class="project-tags">Product Strategy · UX Research · Mobile App · Figma</p>
+                  <p>An accessibility-focused navigation concept that brings fragmented, time-sensitive accessibility information into one place to help people with mobility disabilities plan routes with greater confidence.</p>
+                  <span class="card-link">View project <span aria-hidden="true">→</span></span>
+                </div>
+              </a>
+            </article>
+            <article class="featured-card">
+              <a href="projects/axis.html" aria-label="View Axis @ Tufts IDEA Lab project">
+                <div class="featured-card-media"><img src="assets/images/projects/axis/hero.png" alt="Axis motion controller mounted to a guitar headstock"></div>
+                <h3>Axis @ Tufts IDEA Lab</h3>
+                <div class="featured-card-overlay">
+                  <p class="project-tags">Human Factors · UX Research · Ergonomics · Physical Product Development</p>
+                  <p>Axis is a motion-based guitar-effects system that gives musicians an alternative to traditional footswitch- and dial-based controls.</p>
+                  <span class="card-link">View project <span aria-hidden="true">→</span></span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="page-width footer-content"><section id="home-contact"><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Me</a></li><li><a href="projects.html">Projects</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="marketing-media.html">Marketing &amp; Media</a></li><li><a href="architecture.html">Architecture</a></li></ul></li></ul></nav></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

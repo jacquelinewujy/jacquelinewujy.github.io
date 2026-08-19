@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A physical-digital chessboard that  delivers move recommendations, preserving the tactile experience of over-the-board play.">
+    <title>Smart Chessboard | Jacqueline</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="../about.html">About Me</a>
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu"><a href="../marketing-media.html">Marketing &amp; Media</a><a href="../architecture.html">Architecture</a></div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="page-width case-study">
+      <header class="detail-hero">
+        <h1>Smart Chessboard</h1>
+        <p class="detail-tags">Physical Product · Claude Code · Embedded Systems · 3D Printing</p>
+      </header>
+
+      <div class="case-study-layout">
+        <div class="case-study-content">
+      <section class="case-study-section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Overview</h2>
+        <p>Smart Chessboard is a four-person team project that combines a physical chessboard with real-time move guidance.</p>
+        <p>The project was developed in ENT 164: Intro to Making, a hands-on course focused on building the practical skills needed to turn product ideas into working prototypes.</p>
+        <p>Instead of requiring players to switch to a digital chess app, the board detects piece positions and communicates recommended moves directly through LEDs embedded beneath the playing surface.</p>
+        <dl class="case-study-meta smart-chessboard-meta">
+          <div><dt>Role</dt><dd>Designer &amp; Developer</dd></div>
+          <div><dt>Team</dt><dd>4-person team</dd></div>
+          <div><dt>Timeline</dt><dd>March 2026- April 2026</dd></div>
+        </dl>
+        <img class="smart-chessboard-hero-image" src="../assets/images/projects/smart-chessboard/hero.PNG" alt="Smart Chessboard physical-digital prototype with embedded LED move guidance">
+      </section>
+
+      <section class="case-study-section" aria-labelledby="problem-title">
+        <h2 id="problem-title">The Problem</h2>
+        <p>Digital chess tools can provide feedback and move recommendations, but using them often pulls the player away from the physical experience of playing on a chessboard.</p>
+        <p>We explored how to bring digital guidance directly into over-the-board play—keeping the tactile chess experience while providing real-time move recommendations through the board itself.</p>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="how-it-works-title">
+        <h2 id="how-it-works-title">How It Works</h2>
+        <div class="system-flow">
+          <article>
+            <h3>1. Detect</h3>
+            <p>Magnetic chess pieces interact with <strong>reed switches</strong> beneath the board to detect piece positions.</p>
+          </article>
+          <article>
+            <h3>2. Interpret</h3>
+            <p>The <strong>ESP32</strong> captures the sensor state.</p>
+            <p>We used <strong>Claude Code</strong> to help build the software orchestration logic that interprets the detected board state and converts it into a chess position that can be evaluated by Stockfish.</p>
+          </article>
+          <article>
+            <h3>3. Recommend</h3>
+            <p>The interpreted chess position is sent to <strong>Stockfish</strong>, which determines the recommended move.</p>
+            <p>Stockfish is responsible specifically for the chess move recommendation.</p>
+          </article>
+          <article>
+            <h3>4. Display</h3>
+            <p>The software receives Stockfish’s recommendation and relays the result to the <strong>ESP32</strong>, which controls LEDs beneath the board to communicate the recommended move directly through the physical interface.</p>
+          </article>
+        </div>
+        <div class="architecture-flow" aria-label="Reed switches to ESP32 sensor state to software orchestration logic built with Claude Code to Stockfish move recommendation to software translates result to ESP32 to LEDs">
+          <span class="flow-node">Reed switches</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">ESP32 sensor state</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">Software/orchestration logic built with Claude Code</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">Stockfish move recommendation</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">Software translates result</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">ESP32</span><span class="flow-arrow" aria-hidden="true">→</span>
+          <span class="flow-node">LEDs</span>
+        </div>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="building-title">
+        <h2 id="building-title">Building &amp; Iterating</h2>
+        <dl class="build-progression">
+          <div><dt>Early physical prototype</dt><dd><span aria-hidden="true">→</span> Tested the basic chessboard form and dimensions.</dd></div>
+          <div><dt>Wood board iteration</dt><dd><span aria-hidden="true">→</span> Revised the physical dimensions and enclosure as the product developed.</dd></div>
+          <div><dt>Sensor integration</dt><dd><span aria-hidden="true">→</span> Added reed switches beneath the playing surface to detect magnetic chess pieces.</dd></div>
+          <div><dt>Electronics + software integration</dt><dd><span aria-hidden="true">→</span> Connected the sensing system, ESP32, Stockfish workflow, and LED feedback.</dd></div>
+          <div><dt>Functional prototype</dt><dd><span aria-hidden="true">→</span> Integrated the physical board, electronics, sensing, software, and visual feedback into one working system.</dd></div>
+        </dl>
+        <div class="smart-chessboard-progress-grid">
+          <img class="smart-chessboard-progress-image" src="../assets/images/projects/smart-chessboard/process1.PNG" alt="LED strips arranged across the Smart Chessboard circuit board">
+          <img class="smart-chessboard-progress-image" src="../assets/images/projects/smart-chessboard/process2.PNG" alt="Wiring on the underside of the Smart Chessboard circuit board">
+          <img class="smart-chessboard-progress-image" src="../assets/images/projects/smart-chessboard/process3.PNG" alt="Smart Chessboard electronics connected during prototype integration">
+          <img class="smart-chessboard-progress-image" src="../assets/images/projects/smart-chessboard/process4.PNG" alt="Working Smart Chessboard prototype with illuminated move guidance">
+        </div>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="technical-title">
+        <h2 id="technical-title">Technical Build</h2>
+        <dl class="technical-grid">
+          <div><dt>Microcontroller</dt><dd>ESP32</dd></div>
+          <div><dt>Sensing</dt><dd>Reed switches + magnetic chess pieces</dd></div>
+          <div><dt>Feedback</dt><dd>Embedded LED lighting</dd></div>
+          <div><dt>Chess Engine</dt><dd>Stockfish</dd></div>
+          <div><dt>Development Workflow</dt><dd>Claude Code</dd></div>
+          <div><dt>Fabrication</dt><dd>Laser cutting · 3D printing · Soldering · Wiring</dd></div>
+        </dl>
+      </section>
+
+      <section class="case-study-section" aria-labelledby="outcome-title">
+        <h2 id="outcome-title">Outcome</h2>
+        <p>We built a functional physical-digital chessboard that combined a custom physical interface, magnetic piece detection, embedded electronics, chess-engine recommendations, and LED feedback into one integrated prototype.</p>
+        <p>The project gave me hands-on experience working across physical product development, electronics, software integration, fabrication, and troubleshooting to help turn a multidisciplinary concept into a working system.</p>
+        <a class="button" href="../assets/pdfs/smart-chessboard.pdf" target="_blank" rel="noopener noreferrer">View Slides →</a>
+      </section>
+
+      <video class="smart-chessboard-demo" controls preload="metadata" muted playsinline aria-label="Smart Chessboard demonstration video">
+        <source src="../assets/videos/smart-chessboard-demo.mp4" type="video/mp4">
+        Your browser does not support embedded video playback.
+      </video>
+      <p class="smart-chessboard-video-error" role="alert" hidden>The demo video could not be loaded in this browser.</p>
+        </div>
+        <nav class="case-study-directory" aria-label="Smart Chessboard section directory">
+          <p class="case-study-directory-title">On this page</p>
+          <ul>
+            <li><a href="#overview-title">Overview</a></li>
+            <li><a href="#problem-title">The Problem</a></li>
+            <li><a href="#how-it-works-title">How It Works</a></li>
+            <li><a href="#building-title">Building &amp; Iterating</a></li>
+            <li><a href="#technical-title">Technical Build</a></li>
+            <li><a href="#outcome-title">Outcome</a></li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="page-width footer-content"><section><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About Me</a></li><li><a href="../projects.html">Projects</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="../marketing-media.html">Marketing &amp; Media</a></li><li><a href="../architecture.html">Architecture</a></li></ul></li></ul></nav></div></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

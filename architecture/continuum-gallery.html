@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Continuum Gallery | Jacqueline</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="../about.html">About Me</a>
+        <a href="../projects.html">Projects</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu"><a href="../marketing-media.html">Marketing &amp; Media</a><a href="../architecture.html" aria-current="page">Architecture</a></div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="page-width architecture-detail">
+      <header class="architecture-detail-header">
+        <h1>Continuum Gallery</h1>
+        <p class="architecture-project-description">An exhibition and arts space exploring organic geometry and continuous movement through a sculptural form inspired by Zaha Hadid’s fluid architectural language.</p>
+        <dl class="case-study-meta architecture-project-meta">
+          <div><dt>Timeline</dt><dd>March 2024 – May 2024</dd></div>
+          <div><dt>Tools</dt><dd>Rhino 3D · Blender · 3D Printing</dd></div>
+        </dl>
+      </header>
+
+      <img class="architecture-hero-render" src="../assets/images/architecture/wu-gallery-hero.png" alt="Architecture project render">
+
+      <section class="content-section architecture-viewer-section" aria-labelledby="model-viewer-title">
+        <h2 id="model-viewer-title">Explore the Model</h2>
+        <p class="model-viewer-instructions">Drag to rotate · Scroll to zoom</p>
+        <div
+          id="architecture-model-viewer"
+          class="architecture-model-viewer"
+          role="region"
+          aria-label="Interactive 3D model of the architecture"
+          tabindex="0"
+          data-model-path="../assets/models/wu-gallery.3dm"
+        >
+          <p class="model-viewer-status" role="status" aria-live="polite">Loading 3D model…</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="page-width footer-content"><section><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About Me</a></li><li><a href="../projects.html">Projects</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="../marketing-media.html">Marketing &amp; Media</a></li><li><a href="../architecture.html">Architecture</a></li></ul></li></ul></nav></div></footer>
+
+    <script src="../script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="../architecture-viewer.js"></script>
+  </body>
+</html>
