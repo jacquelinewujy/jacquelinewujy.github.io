@@ -461,3 +461,92 @@ if (smartChessboardDemo) {
     smartChessboardVideoObserver.observe(smartChessboardDemo);
   }
 }
+
+// Renders the Home hero's text-based Hello Kitty one complete row at a time.
+const homeKittyTrigger = document.querySelector('[data-home-kitty-trigger]');
+const homeKittyArt = document.querySelector('[data-home-kitty-art]');
+
+if (homeKittyTrigger && homeKittyArt) {
+  const homeKittyLines = [
+    '⠀⠀⠀⢠⡾⠲⠶⣤⣀⣠⣤⣤⣤⡿⠛⠿⡴⠾⠛⢻⡆⠀⠀⠀',
+    '⠀⠀⠀⣼⠁⠀⠀⠀⠉⠁⠀⢀⣿⠐⡿⣿⠿⣶⣤⣤⣷⡀⠀⠀',
+    '⠀⠀⠀⢹⡶⠀⠀⠀⠀⠀⠀⠌⢯⣡⣿⣿⣀⣸⣿⣦⢓⡟⠀⠀',
+    '⠀⠀⢀⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠹⣍⣭⣾⠁⠀⠀',
+    '⠀⣀⣸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⣷⣤⡀',
+    '⠈⠉⠹⣏⡁⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⢀⣸⣇⣀⠀',
+    '⠀⠐⠋⢻⣅⣄⢀⣀⣀⡀⠀⠯⠽⠀⢀⣀⣀⡀⠀⣤⣿⠀⠉⠀',
+    '⠀⠀⠴⠛⠙⣳⠋⠉⠉⠙⣆⠀⠀⢰⡟⠉⠈⠙⢷⠟⠉⠙⠂⠀',
+    '⠀⠀⠀⠀⠀⢻⣄⣠⣤⣴⠟⠛⠛⠛⢧⣤⣤⣀⡾⠀⠀⠀⠀⠀'
+  ];
+  const reducedHomeKittyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let homeKittyTimer = 0;
+
+  const clearHomeKittyTimer = () => {
+    window.clearTimeout(homeKittyTimer);
+    homeKittyTimer = 0;
+  };
+
+  const positionHomeKitty = () => {
+    if (homeKittyArt.hidden) return;
+
+    const copy = homeKittyTrigger.closest('.home-hero-copy');
+    if (!copy) return;
+
+    const copyRect = copy.getBoundingClientRect();
+    const triggerRect = homeKittyTrigger.getBoundingClientRect();
+    homeKittyArt.style.left = `${triggerRect.left - copyRect.left + (triggerRect.width / 2)}px`;
+    homeKittyArt.style.top = `${triggerRect.top - copyRect.top - homeKittyArt.offsetHeight - 8}px`;
+    homeKittyArt.style.setProperty('--kitty-shift-x', '0px');
+
+    const artRect = homeKittyArt.getBoundingClientRect();
+    const viewportPadding = 8;
+    let horizontalShift = 0;
+    if (artRect.left < viewportPadding) horizontalShift = viewportPadding - artRect.left;
+    else if (artRect.right > window.innerWidth - viewportPadding) horizontalShift = (window.innerWidth - viewportPadding) - artRect.right;
+    homeKittyArt.style.setProperty('--kitty-shift-x', `${horizontalShift}px`);
+  };
+
+  const hideHomeKitty = () => {
+    clearHomeKittyTimer();
+    homeKittyArt.textContent = '';
+    homeKittyArt.hidden = true;
+    homeKittyTrigger.setAttribute('aria-expanded', 'false');
+  };
+
+  const showHomeKitty = () => {
+    clearHomeKittyTimer();
+    homeKittyArt.textContent = '';
+    homeKittyArt.hidden = false;
+    homeKittyTrigger.setAttribute('aria-expanded', 'true');
+    positionHomeKitty();
+
+    if (reducedHomeKittyMotion.matches) {
+      homeKittyArt.textContent = homeKittyLines.join('\n');
+      positionHomeKitty();
+      return;
+    }
+
+    let visibleLineCount = 0;
+    const revealNextLine = () => {
+      visibleLineCount += 1;
+      homeKittyArt.textContent = homeKittyLines.slice(0, visibleLineCount).join('\n');
+      positionHomeKitty();
+      if (visibleLineCount < homeKittyLines.length) homeKittyTimer = window.setTimeout(revealNextLine, 80);
+      else homeKittyTimer = 0;
+    };
+    revealNextLine();
+  };
+
+  homeKittyTrigger.addEventListener('click', () => {
+    if (homeKittyArt.hidden) showHomeKitty();
+    else hideHomeKitty();
+  });
+
+  window.addEventListener('resize', positionHomeKitty);
+  reducedHomeKittyMotion.addEventListener?.('change', (event) => {
+    if (!event.matches || homeKittyArt.hidden) return;
+    clearHomeKittyTimer();
+    homeKittyArt.textContent = homeKittyLines.join('\n');
+    positionHomeKitty();
+  });
+}
