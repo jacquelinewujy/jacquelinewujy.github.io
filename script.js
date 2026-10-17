@@ -4,6 +4,47 @@ const moreDropdowns = document.querySelectorAll('.nav-more');
 const desktopHoverNavigation = window.matchMedia('(hover: hover) and (pointer: fine)');
 const desktopNavigationLayout = window.matchMedia('(min-width: 721px)');
 
+const contactToggle = document.querySelector('[data-contact-toggle]');
+const contactPopover = document.querySelector('[data-contact-popover]');
+if (contactToggle && contactPopover) {
+  const closeContactPopover = (returnFocus = false) => {
+    contactPopover.hidden = true;
+    contactToggle.setAttribute('aria-expanded', 'false');
+    if (returnFocus) contactToggle.focus();
+  };
+
+  contactToggle.addEventListener('click', () => {
+    const shouldOpen = contactPopover.hidden;
+    contactPopover.hidden = !shouldOpen;
+    contactToggle.setAttribute('aria-expanded', String(shouldOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!contactPopover.hidden && !event.target.closest('.home-contact-wrap')) closeContactPopover();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !contactPopover.hidden) closeContactPopover(true);
+  });
+}
+
+// Keep the homepage logo active at the top and Work active at the case studies.
+const homeWorkLink = document.querySelector('.site-nav a[href="#featured-title"]');
+const homeLogo = document.querySelector('.site-header .logo');
+if (homeWorkLink && homeLogo) {
+  const syncHomeNavigation = () => {
+    if (window.location.hash === '#featured-title') {
+      homeWorkLink.setAttribute('aria-current', 'location');
+      homeLogo.removeAttribute('aria-current');
+    } else {
+      homeWorkLink.removeAttribute('aria-current');
+      homeLogo.setAttribute('aria-current', 'page');
+    }
+  };
+  syncHomeNavigation();
+  window.addEventListener('hashchange', syncHomeNavigation);
+}
+
 const openMoreDropdown = (dropdown) => {
   const button = dropdown.querySelector('.more-toggle');
   closeOtherMoreDropdowns(dropdown);
@@ -129,58 +170,6 @@ compactInterestLayout.addEventListener?.('change', (event) => {
   }
 });
 
-// Types the selected About Me skill while briefly pressing its keyboard key.
-const skillsKeyboard = document.querySelector('[data-skills-keyboard]');
-
-if (skillsKeyboard) {
-  const skillKeys = [...skillsKeyboard.querySelectorAll('[data-skill-name]')];
-  const skillOutput = skillsKeyboard.querySelector('[data-skill-output]');
-  const skillCaret = skillsKeyboard.querySelector('[data-skill-caret]');
-  const reducedSkillMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let typingTimer;
-  let pressTimer;
-
-  const typeSkillName = (name) => {
-    window.clearTimeout(typingTimer);
-
-    if (reducedSkillMotion.matches) {
-      skillOutput.textContent = name;
-      skillCaret.hidden = true;
-      return;
-    }
-
-    let characterIndex = 0;
-    skillOutput.textContent = '';
-    skillCaret.hidden = false;
-
-    const typeNextCharacter = () => {
-      characterIndex += 1;
-      skillOutput.textContent = name.slice(0, characterIndex);
-
-      if (characterIndex < name.length) {
-        typingTimer = window.setTimeout(typeNextCharacter, 80);
-      } else {
-        skillCaret.hidden = true;
-      }
-    };
-
-    typeNextCharacter();
-  };
-
-  skillKeys.forEach((key) => {
-    key.addEventListener('click', () => {
-      window.clearTimeout(pressTimer);
-      skillKeys.forEach((item) => {
-        item.classList.remove('is-pressed');
-        item.classList.toggle('is-selected', item === key);
-      });
-
-      key.classList.add('is-pressed');
-      pressTimer = window.setTimeout(() => key.classList.remove('is-pressed'), 140);
-      typeSkillName(key.dataset.skillName);
-    });
-  });
-}
 
 // Keeps each project page's section directory synchronized with its headings.
 document.querySelectorAll('.case-study-directory').forEach((directory) => {
@@ -280,7 +269,7 @@ document.querySelectorAll('[data-wayable-carousel]').forEach((carousel) => {
 
   if (!track || !slides.length || !scrollbar || !thumb) return;
 
-  let activeIndex = Math.min(1, slides.length - 1);
+  let activeIndex = Math.max(0, Math.min(Number(carousel.dataset.startIndex ?? 1), slides.length - 1));
   let animationFrame;
   let isDragging = false;
   let dragStartX = 0;
@@ -466,6 +455,34 @@ if (smartChessboardDemo) {
 const homeKittyTrigger = document.querySelector('[data-home-kitty-trigger]');
 const homeKittyArt = document.querySelector('[data-home-kitty-art]');
 
+// A cursor-following hint for the Home name's existing click interaction.
+if (homeKittyTrigger) {
+  const hint = document.createElement('span');
+  hint.className = 'home-name-cursor-hint';
+  hint.textContent = 'click me!';
+  hint.setAttribute('aria-hidden', 'true');
+  hint.hidden = true;
+  document.body.appendChild(hint);
+  const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const hideHint = () => { hint.hidden = true; };
+  const positionHint = (event) => {
+    if (!hoverPointer.matches || event.pointerType === 'touch') {
+      hideHint();
+      return;
+    }
+    hint.hidden = false;
+    hint.style.left = `${Math.max(8, Math.min(event.clientX + 14, window.innerWidth - hint.offsetWidth - 8))}px`;
+    hint.style.top = `${Math.max(8, Math.min(event.clientY + 16, window.innerHeight - hint.offsetHeight - 8))}px`;
+  };
+  homeKittyTrigger.addEventListener('pointerenter', positionHint);
+  homeKittyTrigger.addEventListener('pointermove', positionHint);
+  homeKittyTrigger.addEventListener('pointerleave', hideHint);
+  homeKittyTrigger.addEventListener('pointercancel', hideHint);
+  window.addEventListener('scroll', hideHint, { passive: true });
+  window.addEventListener('blur', hideHint);
+  hoverPointer.addEventListener('change', hideHint);
+}
+
 if (homeKittyTrigger && homeKittyArt) {
   const homeKittyLines = [
     '⠀⠀⠀⢠⡾⠲⠶⣤⣀⣠⣤⣤⣤⡿⠛⠿⡴⠾⠛⢻⡆⠀⠀⠀',
@@ -480,6 +497,41 @@ if (homeKittyTrigger && homeKittyArt) {
   ];
   const reducedHomeKittyMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let homeKittyTimer = 0;
+  let homeKittyConfettiTimer = 0;
+  const homeKittyConfetti = document.createElement('span');
+  homeKittyConfetti.className = 'home-kitty-confetti';
+  homeKittyConfetti.setAttribute('aria-hidden', 'true');
+  homeKittyTrigger.appendChild(homeKittyConfetti);
+
+  const clearHomeKittyConfetti = () => {
+    window.clearTimeout(homeKittyConfettiTimer);
+    homeKittyConfettiTimer = 0;
+    homeKittyConfetti.replaceChildren();
+  };
+
+  const burstHomeKittyConfetti = () => {
+    clearHomeKittyConfetti();
+    const triggerRect = homeKittyTrigger.getBoundingClientRect();
+    const centerX = triggerRect.left + (triggerRect.width / 2);
+    const radius = Math.min(115, window.innerWidth / 4);
+    const symbols = ['*', '+', 'x', '.'];
+    const particles = document.createDocumentFragment();
+
+    for (let index = 0; index < 20; index += 1) {
+      const angle = (index / 20) * Math.PI * 2;
+      const distance = radius * (0.55 + (index % 4) * 0.15);
+      const x = Math.max(12 - centerX, Math.min(window.innerWidth - 12 - centerX, Math.cos(angle) * distance));
+      const y = Math.sin(angle) * distance;
+      const particle = document.createElement('span');
+      particle.textContent = symbols[index % symbols.length];
+      particle.style.setProperty('--confetti-x', `${x}px`);
+      particle.style.setProperty('--confetti-y', `${y}px`);
+      particles.appendChild(particle);
+    }
+
+    homeKittyConfetti.appendChild(particles);
+    homeKittyConfettiTimer = window.setTimeout(clearHomeKittyConfetti, 1000);
+  };
 
   const clearHomeKittyTimer = () => {
     window.clearTimeout(homeKittyTimer);
@@ -508,6 +560,7 @@ if (homeKittyTrigger && homeKittyArt) {
 
   const hideHomeKitty = () => {
     clearHomeKittyTimer();
+    clearHomeKittyConfetti();
     homeKittyArt.textContent = '';
     homeKittyArt.hidden = true;
     homeKittyTrigger.setAttribute('aria-expanded', 'false');
@@ -538,7 +591,10 @@ if (homeKittyTrigger && homeKittyArt) {
   };
 
   homeKittyTrigger.addEventListener('click', () => {
-    if (homeKittyArt.hidden) showHomeKitty();
+    if (homeKittyArt.hidden) {
+      showHomeKitty();
+      burstHomeKittyConfetti();
+    }
     else hideHomeKitty();
   });
 
