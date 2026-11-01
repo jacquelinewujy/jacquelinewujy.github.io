@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Banyan Academy website design and heuristic evaluation by Jacqueline Wu.">
+    <title>Banyan Academy | Jacqueline</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="Jacqueline home">JW</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="../index.html#featured-title" aria-current="page">Work</a>
+        <a href="../play.html">Play</a>
+        <a href="../about.html">About Me</a>
+        <div class="nav-more">
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-menu">More <span aria-hidden="true">⌄</span></button>
+          <div id="more-menu" class="more-menu"><a href="../marketing-media.html">Marketing &amp; Media</a></div>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" class="page-width case-study banyan-project">
+      <header class="detail-hero">
+        <h1>Banyan Academy</h1>
+        <p class="detail-tags">Banyan Partners · Website Design · Heuristic Evaluation</p>
+      </header>
+      <div class="case-study-layout">
+        <div class="case-study-content">
+          <section class="case-study-section" aria-labelledby="overview-title">
+            <div class="project-overview-card project-overview-banyan">
+              <h2 id="overview-title">Overview</h2>
+              <dl>
+                <div><dt>The product</dt><dd>A website that organizes Banyan's value investing and financial analysis educational program into a guided learning experience.</dd></div>
+                <div><dt>My role</dt><dd>Website design and heuristic evaluation</dd></div>
+                <div><dt>Tools</dt><dd>Lovable</dd></div>
+                <div><dt>My contributions</dt><dd><ul>
+                  <li>Built the initial website using company’s curriculum and content</li>
+                  <li>Organized the homepage, course navigation, account access, and progress displays</li>
+                  <li>Conducted a heuristic evaluation using Nielsen’s ten usability heuristics</li>
+                  <li>Prioritized improvements to access requirements, progress visibility, and module navigation</li>
+                </ul></dd></div>
+              </dl>
+            </div>
+            <p>Banyan developed the curriculum and educational content. My work focused on how learners discover, access, and navigate that content.</p>
+            <div class="banyan-screenshot"><img src="../assets/images/projects/banyan-academy/homepage.jpg" alt="Banyan Academy homepage introducing Value Investing in China and the Start Course action" loading="lazy"></div>
+          </section>
+          <section class="case-study-section" aria-labelledby="initial-title">
+            <h2 id="initial-title">Building the Initial Website</h2>
+            <p>Using Lovable, I translated Banyan’s modules and information into a website connecting a public introduction with the learning experience. I organized module descriptions, created login and signup screens, and added completion and progress displays.</p>
+            <p>After establishing the initial website, I reviewed whether visitors could understand what was available, what required an approved account, and what to do next.</p>
+            <div class="banyan-screenshot"><img src="../assets/images/projects/banyan-academy/course-overview.jpg" alt="Initial course overview with overall progress, five modules, Begin actions, and supplementary resources" loading="lazy"></div>
+          </section>
+          <section class="case-study-section" aria-labelledby="evaluation-title">
+            <h2 id="evaluation-title">Evaluating the Experience</h2>
+            <p>A review using Nielsen’s ten usability heuristics identified three top priorities for refinement.</p>
+            <h3>Clarify access requirements</h3>
+            <p>“Start Course” and “Begin” suggest immediate access, but sign-in and administrator approval appear only after selecting a module.</p>
+            <p><strong>Usability heuristic:</strong> Match between system and the real world</p>
+            <p><strong>Design change:</strong> Let visitors preview module descriptions and clearly display “Sign in to continue” before they access content. Explain the approved-account requirement upfront.</p>
+            <div class="banyan-screenshot banyan-sign-in-screenshot"><img src="../assets/images/projects/banyan-academy/sign-in-approval.jpg" alt="Sign-in dialog explaining administrator approval after a visitor selects a course module" loading="lazy"></div>
+            <h3>Make module prerequisites clear</h3>
+            <p>Every module shows “Begin,” despite instructions to complete modules in order. Actual prerequisite enforcement was not tested.</p>
+            <p><strong>Usability heuristic:</strong> Error prevention</p>
+            <p><strong>Design change:</strong> For approved new learners, show “Begin” only for Module 1. Keep later modules locked until the preceding module is completed, with clear prerequisite labels. Public module descriptions remain visible.</p>
+            <div class="banyan-screenshot"><img src="../assets/images/projects/banyan-academy/module-actions.png" alt="Banyan Academy module actions" loading="lazy"></div>
+            <h3>Separate public and personal views</h3>
+            <p>Signed-out visitors see “Overall Progress 0%,” “Not Started,” and step counts that resemble personal learner information.</p>
+            <p><strong>Usability heuristic:</strong> Visibility of system status</p>
+            <p><strong>Design change:</strong> Show visitors module and supplementary-resource summaries. Display personal progress and learning content only after approved sign-in.</p>
+            <a class="button" href="../assets/images/projects/banyan-academy/banyan-heuristic-evaluations.xlsx" download>Download Full Heuristic Evaluation →</a>
+          </section>
+          <section class="case-study-section" aria-labelledby="refinements-title">
+            <h2 id="refinements-title">Design Changes</h2>
+            <p>The next version will separate the public curriculum overview from the personal learning dashboard. Visitors will be able to preview module and supplementary-resource descriptions, with clear guidance that an approved account is required to access the content.</p>
+            <p>For approved learners, progress indicators and available actions will reflect their course status. Clearer, more readable buttons and labels will emphasize the next step.</p>
+            <a class="button" href="https://academy.banyanstrategic.com/" target="_blank" rel="noopener noreferrer">View Website →</a>
+          </section>
+        </div>
+        <nav class="case-study-directory" aria-label="Banyan Academy section directory">
+          <p class="case-study-directory-title">On this page</p>
+          <ul>
+            <li><a href="#overview-title">Overview</a></li>
+            <li><a href="#initial-title">Building the Initial Website</a></li>
+            <li><a href="#evaluation-title">Evaluating the Experience</a></li>
+            <li><a href="#refinements-title">Design Changes</a></li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="page-width footer-content"><section><h2>Let’s Connect!</h2><p><a href="mailto:jacquelinewu06@gmail.com">jacquelinewu06@gmail.com</a><br><a href="https://www.linkedin.com/in/jacquelinewujy/">LinkedIn</a></p></section><nav class="footer-nav" aria-label="Footer navigation"><ul><li><a href="../index.html#featured-title">Work</a></li><li><a href="../about.html">About Me</a></li><li><a href="../play.html">Play</a></li><li class="nav-more footer-more"><button class="more-toggle" type="button" aria-expanded="false" aria-controls="footer-more-menu">More <span aria-hidden="true">⌄</span></button><ul id="footer-more-menu" class="more-menu"><li><a href="../marketing-media.html">Marketing &amp; Media</a></li></ul></li></ul></nav></div></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
