@@ -606,3 +606,68 @@ if (homeKittyTrigger && homeKittyArt) {
     positionHomeKitty();
   });
 }
+// Repeat one visual sequence for a seamless, continuously scrolling gallery.
+const banyanWireframes = document.querySelector('.banyan-wireframe-grid');
+if (banyanWireframes) {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let visible = false;
+  const originals = [...banyanWireframes.children];
+  originals.forEach(slide => {
+    const copy = slide.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    banyanWireframes.append(copy);
+  });
+  banyanWireframes.classList.add('is-continuous');
+  let frame;
+  let lastTime = 0;
+  let remainder = 0;
+  let manualUntil = 0;
+  let dragging = false;
+  const advance = time => {
+    const elapsed = lastTime ? Math.min(time - lastTime, 50) : 0;
+    lastTime = time;
+    if (!dragging && time >= manualUntil) {
+      // Retain fractional pixels so slow movement works at any refresh rate.
+      remainder += elapsed * 24 / 1000;
+      const pixels = Math.floor(remainder);
+      remainder -= pixels;
+      const period = banyanWireframes.children[originals.length].getBoundingClientRect().left
+        - originals[0].getBoundingClientRect().left;
+      if (period > 0 && pixels) {
+        banyanWireframes.scrollLeft = (banyanWireframes.scrollLeft + pixels) % period;
+      }
+    }
+    frame = window.requestAnimationFrame(advance);
+  };
+  const schedule = () => {
+    window.cancelAnimationFrame(frame);
+    lastTime = 0;
+    if (motion.matches || !visible || document.hidden) return;
+    frame = window.requestAnimationFrame(advance);
+  };
+  // Never fight a visitor's wheel, swipe, or scrollbar drag.
+  banyanWireframes.addEventListener('wheel', () => { manualUntil = performance.now() + 1200; }, { passive: true });
+  banyanWireframes.addEventListener('pointerdown', () => { dragging = true; });
+  const release = () => {
+    if (!dragging) return;
+    dragging = false;
+    manualUntil = performance.now() + 1200;
+  };
+  banyanWireframes.addEventListener('scroll', () => {
+    // Include touch momentum in the manual-scroll pause, not autoplay scrolls.
+    if (dragging || performance.now() < manualUntil) manualUntil = performance.now() + 1200;
+  }, { passive: true });
+  banyanWireframes.addEventListener('keydown', event => {
+    if (['ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', ' '].includes(event.key)) {
+      manualUntil = performance.now() + 1200;
+    }
+  });
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
+  document.addEventListener('visibilitychange', schedule);
+  motion.addEventListener('change', schedule);
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    schedule();
+  }).observe(banyanWireframes);
+}

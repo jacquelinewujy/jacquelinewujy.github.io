@@ -52,32 +52,78 @@
             <h2 id="initial-title">Building the Initial Website</h2>
             <p>Using Lovable, I translated Banyan’s modules and information into a website connecting a public introduction with the learning experience. I organized module descriptions, created login and signup screens, and added completion and progress displays.</p>
             <p>After establishing the initial website, I reviewed whether visitors could understand what was available, what required an approved account, and what to do next.</p>
-            <div class="banyan-screenshot"><img src="../assets/images/projects/banyan-academy/course-overview.jpg" alt="Initial course overview with overall progress, five modules, Begin actions, and supplementary resources" loading="lazy"></div>
+            <figure class="banyan-wireframe">
+              <figcaption>First iteration — wireframes</figcaption>
+              <div id="banyan-wireframes" class="banyan-wireframe-grid" tabindex="0" role="region" aria-label="Initial wireframes: scroll horizontally to explore each page">
+                <img src="../assets/images/projects/banyan-academy/Wireframe-1.jpg" alt="Initial homepage wireframe" loading="lazy">
+                <div class="banyan-wireframe-continuous">
+                  <img src="../assets/images/projects/banyan-academy/Wireframe-2.1.jpg" alt="Course dashboard wireframe, top half" loading="lazy">
+                  <img src="../assets/images/projects/banyan-academy/Wireframe-2.2.jpg" alt="Course module list wireframe, bottom half" loading="lazy">
+                </div>
+                <img src="../assets/images/projects/banyan-academy/Wireframe-3.jpg" alt="My Progress dashboard wireframe" loading="lazy">
+                <img src="../assets/images/projects/banyan-academy/Wireframe-4.jpg" alt="Account access wireframe" loading="lazy">
+              </div>
+            </figure>
           </section>
           <section class="case-study-section" aria-labelledby="evaluation-title">
-            <h2 id="evaluation-title">Evaluating the Experience</h2>
+            <h2 id="evaluation-title">Heuristic Evaluation</h2>
             <p>A review using Nielsen’s ten usability heuristics identified three top priorities for refinement.</p>
             <h3>Clarify access requirements</h3>
             <p>“Start Course” and “Begin” suggest immediate access, but sign-in and administrator approval appear only after selecting a module.</p>
             <p><strong>Usability heuristic:</strong> Match between system and the real world</p>
             <p><strong>Design change:</strong> Let visitors preview module descriptions and clearly display “Sign in to continue” before they access content. Explain the approved-account requirement upfront.</p>
-            <div class="banyan-screenshot banyan-sign-in-screenshot"><img src="../assets/images/projects/banyan-academy/sign-in-approval.jpg" alt="Sign-in dialog explaining administrator approval after a visitor selects a course module" loading="lazy"></div>
+            <div class="banyan-comparison banyan-comparison-stacked" role="group" aria-label="access requirements before and after">
+              <figure>
+                <figcaption>Before</figcaption>
+                <div class="banyan-button-crop banyan-button-crop-before">
+                  <img src="../assets/images/projects/banyan-academy/module-old.png" alt="Before: Module 1 button labeled Begin" loading="lazy">
+                </div>
+              </figure>
+              <figure>
+                <figcaption>After</figcaption>
+                <div class="banyan-button-crop banyan-button-crop-after">
+                  <img src="../assets/images/projects/banyan-academy/begin-button.png" alt="After: Module 1 button labeled Log in to begin" loading="lazy">
+                </div>
+              </figure>
+            </div>
             <h3>Make module prerequisites clear</h3>
             <p>Every module shows “Begin,” despite instructions to complete modules in order. Actual prerequisite enforcement was not tested.</p>
             <p><strong>Usability heuristic:</strong> Error prevention</p>
             <p><strong>Design change:</strong> For approved new learners, show “Begin” only for Module 1. Keep later modules locked until the preceding module is completed, with clear prerequisite labels. Public module descriptions remain visible.</p>
-            <div class="banyan-screenshot"><img src="../assets/images/projects/banyan-academy/module-actions.png" alt="Banyan Academy module actions" loading="lazy"></div>
+            <div class="banyan-comparison banyan-comparison-modules" role="group" aria-label="module prerequisites before and after">
+              <figure>
+                <figcaption>Before</figcaption>
+                <div class="banyan-detail-crop banyan-modules-before">
+                  <img src="../assets/images/projects/banyan-academy/module-old.png" alt="Before: Complete in order above Begin buttons for Modules 1 and 2" loading="lazy">
+                </div>
+              </figure>
+              <figure>
+                <figcaption>After</figcaption>
+                <div class="banyan-detail-crop banyan-modules-after">
+                  <img src="../assets/images/projects/banyan-academy/module.png" alt="After: Complete in order above Log in to begin for Module 1 and Locked for Module 2" loading="lazy">
+                </div>
+              </figure>
+            </div>
             <h3>Separate public and personal views</h3>
             <p>Signed-out visitors see “Overall Progress 0%,” “Not Started,” and step counts that resemble personal learner information.</p>
             <p><strong>Usability heuristic:</strong> Visibility of system status</p>
             <p><strong>Design change:</strong> Show visitors module and supplementary-resource summaries. Display personal progress and learning content only after approved sign-in.</p>
+            <div class="banyan-comparison banyan-comparison-stacked" role="group" aria-label="public and personal views before and after">
+              <figure>
+                <figcaption>Before</figcaption>
+                <div class="banyan-detail-crop banyan-progress-before">
+                  <img src="../assets/images/projects/banyan-academy/course-overview-old.jpg" alt="Before: Overall Progress at 0% and Begin Module 1" loading="lazy">
+                </div>
+              </figure>
+              <figure>
+                <figcaption>After</figcaption>
+                <div class="banyan-detail-crop banyan-progress-after">
+                  <img src="../assets/images/projects/banyan-academy/course.png" alt="After: locked Overall Progress and Log in to view progress" loading="lazy">
+                </div>
+              </figure>
+            </div>
             <a class="button" href="../assets/images/projects/banyan-academy/banyan-heuristic-evaluations.xlsx" download>Download Full Heuristic Evaluation →</a>
-          </section>
-          <section class="case-study-section" aria-labelledby="refinements-title">
-            <h2 id="refinements-title">Design Changes</h2>
-            <p>The next version will separate the public curriculum overview from the personal learning dashboard. Visitors will be able to preview module and supplementary-resource descriptions, with clear guidance that an approved account is required to access the content.</p>
-            <p>For approved learners, progress indicators and available actions will reflect their course status. Clearer, more readable buttons and labels will emphasize the next step.</p>
-            <a class="button" href="https://academy.banyanstrategic.com/" target="_blank" rel="noopener noreferrer">View Website →</a>
+            <p><a class="button" href="https://academy.banyanstrategic.com/" target="_blank" rel="noopener noreferrer">View Website →</a></p>
           </section>
         </div>
         <nav class="case-study-directory" aria-label="Banyan Academy section directory">
@@ -85,8 +131,7 @@
           <ul>
             <li><a href="#overview-title">Overview</a></li>
             <li><a href="#initial-title">Building the Initial Website</a></li>
-            <li><a href="#evaluation-title">Evaluating the Experience</a></li>
-            <li><a href="#refinements-title">Design Changes</a></li>
+            <li><a href="#evaluation-title">Heuristic Evaluation</a></li>
           </ul>
         </nav>
       </div>
